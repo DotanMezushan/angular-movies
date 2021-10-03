@@ -1,0 +1,23 @@
+<div   *ngIf="!list" >
+    <span #loading >
+        <ng-content select="[loading]"></ng-content>
+    </span>
+    <span *ngIf="!loading.innerHTML.trim()"></span>
+<img
+  src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/b6e0b072897469.5bf6e79950d23.gif"
+/>
+</div>
+
+
+<div *ngIf="list?.length===0" >
+    <span #empty>
+        <ng-content select="[empty]"></ng-content>
+    </span>
+    <span *ngIf="!empty.innerHTML.trim()"></span>
+    there are no record to display
+</div>
+<ng-container *ngIf="list && list?.length>0" >
+<ng-content select ="[content]"></ng-content>
+
+
+</ng-container>

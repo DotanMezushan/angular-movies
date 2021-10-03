@@ -1,0 +1,12 @@
+form{
+    width:100%;
+}
+form mat-form-field{
+    width:25%;
+    margin-right: 1rem;
+    display: -moz-box;
+}
+
+.clear-container{
+    margin-bottom: 2rem;
+}
