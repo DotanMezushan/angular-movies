@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -29,6 +29,10 @@ export class MoviesService {
   public getById(id:number):Observable<movieDTO>{
     return this.http.get<movieDTO>(`${this.apiURL}/${id}`);
   }
+  public filter(value :any):Observable<any>{
+    const params = new HttpParams({fromObject:value});
+    return this.http.get<movieDTO[]>(`${this.apiURL}/filter`,{params,observe:'response'});
+  }
 
   public postGet(): Observable<MoviePostGetDTO>{
     return this.http.get<MoviePostGetDTO>(`${this.apiURL}/postget`);
@@ -37,6 +41,10 @@ export class MoviesService {
   public create(movieCreationDTO:movieCreationDTO): Observable<number>{
       const formData = this.BuildFormData(movieCreationDTO);
       return this.http.post<number>(this.apiURL ,formData);
+  }
+
+  public delete(id:number){
+    return this.http.delete(`${this.apiURL}/${id}`);
   }
 
   private BuildFormData(movie:movieCreationDTO):FormData{

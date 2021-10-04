@@ -10,15 +10,19 @@ import { MoviesService } from '../movies/movies.service';
 export class HomeComponent implements OnInit {
   constructor(private moviesService: MoviesService){}
   ngOnInit(): void {
+    this.loadData();
+  }
+  loadData(){
     this.moviesService.getHomePageMovies().subscribe(homeDTO =>{
       this.moviesInTheaters = homeDTO.inTheaters;
       this.moviesFutureReleases=   homeDTO.upcomingReleases;
-
     });
-
   }
 
   moviesInTheaters!:movieDTO[] ;
   moviesFutureReleases!:movieDTO[] ; 
+  onDelete(){
+    this.loadData();
+  }
 
 }
