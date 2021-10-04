@@ -14,6 +14,7 @@ export interface movieCreationDTO {
     actors: actorsMovieDTO[];
 }
 export interface movieDTO {
+    id: number;
     title: string;
     summary: string;
     poster: string;
@@ -29,3 +30,23 @@ export interface MoviePostGetDTO {
     genres: genreDTO[];
     movieTheaters: movieTheaterDTO[];
 }
+export interface homeDTO{
+    inTheaters : movieDTO[];
+    upcomingReleases : movieDTO[];
+}
+export interface homeDTO{
+    inTheaters : movieDTO[];
+    upcomingReleases : movieDTO[];
+}
+export interface MoviePostGetDTO {
+    movie: movieDTO;
+    selectedGenres: genreDTO[];
+    nonSelectedGenres: genreDTO[];
+    selectedMovieTheaters : movieTheaterDTO[];
+    nonSelectedMovieTheaters : movieTheaterDTO[];
+    actors : actorsMovieDTO[];
+
+
+
+}
+

@@ -58,7 +58,7 @@
         <div *ngIf="movie"style="display: flex" >
             <div *ngIf="coordinates.length >0" style="padding-left: 1rem; position: relative; width: 100%;" >
                 <h2>Displaying in the following movie theathers</h2>
-                <app-map [initialCoordinates]="coordinates"></app-map>
+                <app-map [initialCoordinates]="coordinates" [editMode]="false"></app-map>
                 </div> 
         </div>
 

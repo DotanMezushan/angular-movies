@@ -27,4 +27,8 @@ img{
 }
 
 button{margin-left: 1em;}
+a {
+    text-decoration: none;
+    color: block;
+}
 

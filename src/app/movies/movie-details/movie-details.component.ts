@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { coordinatesMap } from 'src/app/utilities/map/coordinate';
+import {  coordinatesMapWithMessage } from 'src/app/utilities/map/coordinate';
 import { movieDTO } from '../movies.model';
 import { MoviesService } from '../movies.service';
 
@@ -20,7 +20,7 @@ export class MovieDetailsComponent implements OnInit {
     movie!: movieDTO;
     releaseDate !: Date ;
     trailerURL !: SafeResourceUrl;
-    coordinates !: coordinatesMap[];
+    coordinates !: coordinatesMapWithMessage[];
 
 
   ngOnInit(): void {

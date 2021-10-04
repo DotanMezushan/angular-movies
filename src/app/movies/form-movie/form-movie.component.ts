@@ -20,20 +20,14 @@ export class FormMovieComponent implements OnInit {
 
   @Output()
   onSaveChanges=new EventEmitter<movieCreationDTO>();
- 
   @Input()
   nonSelectedGenres: multipleSelectorModel[]=[];
-
-
   @Input()
   nonSelectedMovieTheaters: multipleSelectorModel[]=[];
-
   @Input()
-  SelectedGenres: multipleSelectorModel[] =[];
-
+  selectedGenres: multipleSelectorModel[] =[];
   @Input()
-  SelectedMovieTheaters: multipleSelectorModel[] =[];
-
+  selectedMovieTheaters: multipleSelectorModel[] =[];
   @Input()
   selectedActors :actorsMovieDTO[]=[];
 
@@ -58,11 +52,11 @@ export class FormMovieComponent implements OnInit {
 
   }
   saveChanges(): void {
-    const genresIds = this.SelectedGenres.map(value => value.key);
+    const genresIds = this.selectedGenres.map(value => value.key);
     this.form.get('genresIds')?.setValue(genresIds);
     console.log(genresIds);
 
-    const movieTheatersIds = this.SelectedMovieTheaters.map(value => value.key);
+    const movieTheatersIds = this.selectedMovieTheaters.map(value => value.key);
     this.form.get('movieTheatersIds')?.setValue(movieTheatersIds);
 
     const actors = this.selectedActors.map(val =>{
